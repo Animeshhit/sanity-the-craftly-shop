@@ -50,7 +50,7 @@ export const ProductType = {
       of: [
         {
           type: 'reference',
-          to: [{type: 'categories'}], // Replace 'category' with the name of your category schema
+          to: [{type: 'category'}], // Replace 'category' with the name of your category schema
         },
       ],
       validation: (Rule: {required: () => any}) => Rule.required(), // To make it a required field
