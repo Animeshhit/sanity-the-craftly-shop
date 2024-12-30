@@ -1,16 +1,18 @@
-export default {
+import {defineType, defineField} from 'sanity'
+
+export default defineType({
   name: 'category',
   title: 'Category',
   type: 'document',
   fields: [
-    {
+    defineField({
       name: 'title',
       title: 'Title',
       type: 'string',
       description: 'The name of the category',
-      validation: (Rule: { required: () => { (): any; new(): any; min: { (arg0: number): { (): any; new(): any; max: { (arg0: number): any; new(): any; }; }; new(): any; }; }; }) => Rule.required().min(3).max(50),
-    },
-    {
+      validation: (Rule) => Rule.required().min(3).max(50),
+    }),
+    defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -19,16 +21,16 @@ export default {
         source: 'title',
         maxLength: 96,
       },
-      validation: (Rule: { required: () => any; }) => Rule.required(),
-    },
-    {
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'description',
       title: 'Description',
       type: 'text',
       description: 'A short description of the category',
-      validation: (Rule: { max: (arg0: number) => any; }) => Rule.max(200),
-    },
-    {
+      validation: (Rule) => Rule.max(200),
+    }),
+    defineField({
       name: 'image',
       title: 'Image',
       type: 'image',
@@ -37,13 +39,13 @@ export default {
         hotspot: true, // Enables the image hotspot feature
       },
       fields: [
-        {
+        defineField({
           name: 'alt',
           title: 'Alternative Text',
           type: 'string',
           description: 'Describe the image for accessibility',
-        },
+        }),
       ],
-    },
+    }),
   ],
-};
+})
