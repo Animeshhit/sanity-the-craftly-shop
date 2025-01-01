@@ -10,5 +10,10 @@ export const ColorsType = defineType({
       title: 'Name',
       type: 'string',
     }),
+    defineField({
+      name: 'color',
+      title: 'Color Code eg: #000000',
+      type: 'string',
+    }),
   ],
 })
