@@ -67,7 +67,6 @@ export const ProductType = defineType({
       name: 'colors',
       title: 'Available Colors',
       type: 'array',
-      validation: (Rule) => Rule.required(),
       of: [
         {
           type: 'reference',
@@ -79,7 +78,6 @@ export const ProductType = defineType({
       name: 'sizes',
       title: 'Available Sizes',
       type: 'array',
-      validation: (Rule) => Rule.required(),
       of: [
         {
           type: 'reference',
