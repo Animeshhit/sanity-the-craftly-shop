@@ -46,6 +46,12 @@ export const ProductType = defineType({
       of: [{type: 'image'}],
     }),
     defineField({
+      name: 'fullDescription',
+      title: 'Full Description',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'categories',
       title: 'Categories',
       type: 'array',
@@ -54,6 +60,30 @@ export const ProductType = defineType({
         {
           type: 'reference',
           to: [{type: 'category'}],
+        },
+      ],
+    }),
+    defineField({
+      name: 'colors',
+      title: 'Available Colors',
+      type: 'array',
+      validation: (Rule) => Rule.required(),
+      of: [
+        {
+          type: 'reference',
+          to: [{type: 'colors'}],
+        },
+      ],
+    }),
+    defineField({
+      name: 'sizes',
+      title: 'Available Sizes',
+      type: 'array',
+      validation: (Rule) => Rule.required(),
+      of: [
+        {
+          type: 'reference',
+          to: [{type: 'sizes'}],
         },
       ],
     }),
@@ -78,6 +108,12 @@ export const ProductType = defineType({
     defineField({
       name: 'isAvailable',
       title: 'Is Available?',
+      type: 'boolean',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'isCustomizeable',
+      title: 'Is Customizeable?',
       type: 'boolean',
       validation: (Rule) => Rule.required(),
     }),
